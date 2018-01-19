@@ -29,7 +29,7 @@ public class App {
     
     public void automation() throws MalformedURLException {
     	
-    	RemoteWebDriver driver = null;
+    	RemoteWebDriver driver;
     	try {
     	URL resource = App.class.getResource("/geckodriver.exe");
     	URLClassLoader loader = (URLClassLoader) this.getClass().getClassLoader();
@@ -41,8 +41,9 @@ public class App {
  		cap.setPlatform(Platform.WINDOWS);*/
  		 
  		//driver = new RemoteWebDriver(new URL(Node), cap);
- 		driver.get(URL);
+ 		
  		driver = new FirefoxDriver();
+ 		driver.get(URL);
  		WebElement search = driver.findElement(By.id("lst-ib"));
  		search.sendKeys("Hello");
  		search.submit();
